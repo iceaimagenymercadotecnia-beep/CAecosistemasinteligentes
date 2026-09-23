@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hidalgo: Radiografía del Turismo Cultural - UAEH OUITSC-H</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            culture: {
+              terracotta: '#B25B32',
+              darkterracotta: '#8C3E1B',
+              gold: '#C59B27',
+              stone: '#4A4238',
+              darkstone: '#2F2A24',
+              sand: '#F7F4EE',
+              charcoal: '#2D2D2D'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Montserrat:wght@300;400;600;700;800&display=swap');
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    .font-heritage {
+      font-family: 'Cinzel', serif;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-culture-sand via-white to-amber-50/30 min-h-screen text-culture-charcoal">
+<div style="max-width:1280px;margin:12px auto 0;padding:0 24px;font-family:Montserrat,Arial,sans-serif"><div style="background:#fff;border:1px solid #d1d5db;padding:12px 14px;border-radius:10px;font-size:12px;line-height:1.5;color:#374151"><strong>Nota editorial:</strong> visualización incorporada al Observatorio como material de trabajo. Las cifras, estimaciones y afirmaciones cuantitativas deben contar con fuente documental verificable antes de considerarse datos oficiales o resultados validados.</div></div>
+<div style="max-width:1280px;margin:10px auto 0;padding:0 24px;font-family:Montserrat,Arial,sans-serif"><a href="index.html" style="font-size:12px;color:#374151;text-decoration:none">← Volver al Observatorio</a></div>
+
+
+  <!-- ENCABEZADO INSTITUCIONAL SEGURO (SIN IMÁGENES EXTERNAS NI CAJAS AMARILLAS) -->
+  <header class="bg-gradient-to-r from-culture-darkstone via-[#3a332b] to-culture-stone text-white py-6 px-6 shadow-md relative overflow-hidden">
+    <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#C59B27_1px,transparent_1px)] [background-size:20px_20px]"></div>
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center relative z-10 gap-6">
+      
+      <!-- LADO IZQUIERDO: TEXTO INSTITUCIONAL VECTORIZADO -->
+      <div class="flex items-center justify-center bg-white/10 p-3 rounded-xl border border-white/10 backdrop-blur-sm w-28 h-16 shrink-0">
+        <span class="text-xl font-black tracking-wider text-white">UAEH</span>
+      </div>
+
+      <!-- CENTRO: TÍTULOS Y JERARQUÍA ACADÉMICA DEL OBSERVATORIO -->
+      <div class="text-center md:text-left flex-grow space-y-1">
+        <p class="text-xs font-bold tracking-widest text-culture-gold uppercase">
+          Universidad Autónoma del Estado de Hidalgo
+        </p>
+        
+        <h2 class="text-sm md:text-base font-semibold tracking-tight text-amber-100/90 max-w-3xl">
+          Observatorio Universitario de Innovación en Turismo Sustentable y Comunitario de Hidalgo
+        </h2>
+
+        <h1 class="text-2xl md:text-3xl font-black tracking-tight font-heritage text-white pt-1">
+          HIDALGO: <span class="text-culture-gold">Turismo Cultural</span>
+        </h1>
+        
+        <p class="text-amber-100/60 text-[11px]">
+          Análisis de afluencia, corredores patrimoniales y estrategias de pernocta | Reporte Técnico 2026
+        </p>
+      </div>
+
+      <!-- LADO DERECHO: IDENTIFICADOR DEL OBSERVATORIO + BOTÓN IMPRIMIR -->
+      <div class="flex flex-col sm:flex-row md:flex-col items-center md:items-end gap-3 shrink-0">
+        <div class="flex items-center justify-center bg-white/10 p-2.5 rounded-xl border border-white/10 backdrop-blur-sm w-28 h-16">
+          <div class="text-center text-[10px] font-bold text-amber-200">
+            <i class="fa-solid fa-chart-line text-base mb-0.5 text-white block"></i>
+            OUITSC-H
+          </div>
+        </div>
+        
+        <button onclick="window.print()" class="bg-white/10 hover:bg-white/20 transition px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-2 border border-white/15">
+          <i class="fa-solid fa-print"></i> Imprimir
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto p-4 md:p-6 space-y-6">
+
+    <!-- KPI Cultural Grid -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- KPI 1 -->
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-amber-100/50 flex items-center gap-4 transition-all hover:shadow-md hover:-translate-y-1">
+        <div class="p-4 bg-culture-gold/10 rounded-xl text-culture-gold">
+          <i class="fa-solid fa-landmark-dome text-2xl"></i>
+        </div>
+        <div>
+          <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Afluencia Anual (INAH)</p>
+          <p class="text-2xl font-black text-culture-stone">~450K</p>
+          <p class="text-xs text-gray-500 font-medium">Visitantes registrados</p>
+        </div>
+      </div>
+      <!-- KPI 2 -->
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-amber-100/50 flex items-center gap-4 transition-all hover:shadow-md hover:-translate-y-1">
+        <div class="p-4 bg-culture-terracotta/10 rounded-xl text-culture-terracotta">
+          <i class="fa-solid fa-calendar-days text-2xl"></i>
+        </div>
+        <div>
+          <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Flujo Mensual Ordinario</p>
+          <p class="text-2xl font-black text-culture-stone">21,000</p>
+          <p class="text-xs text-gray-500 font-medium">Promedio de visitas/mes</p>
+        </div>
+      </div>
+      <!-- KPI 3 -->
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-amber-100/50 flex items-center gap-4 transition-all hover:shadow-md hover:-translate-y-1">
+        <div class="p-4 bg-amber-50 rounded-xl text-amber-700">
+          <i class="fa-solid fa-gopuran text-2xl"></i>
+        </div>
+        <div>
+          <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Concentración en Tula</p>
+          <p class="text-2xl font-black text-amber-700">65%</p>
+          <p class="text-xs text-emerald-600 font-semibold"><i class="fa-solid fa-location-pin"></i> Principal Atractivo</p>
+        </div>
+      </div>
+      <!-- KPI 4 -->
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-amber-100/50 flex items-center gap-4 transition-all hover:shadow-md hover:-translate-y-1">
+        <div class="p-4 bg-stone-100 rounded-xl text-culture-stone">
+          <i class="fa-solid fa-map-location-dot text-2xl"></i>
+        </div>
+        <div>
+          <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Corredores Activos</p>
+          <p class="text-2xl font-black text-culture-stone">3</p>
+          <p class="text-xs text-culture-terracotta font-semibold">Macro-regiones culturales</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Interactive Dashboard -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- Left & Center Span (8 cols): Interactive Corridors Explorer -->
+      <div class="lg:col-span-8 space-y-6">
+        
+        <!-- Corridor Selector & Info Card -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-amber-100/50">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+            <div>
+              <h2 class="text-lg font-bold text-culture-stone flex items-center gap-2">
+                <i class="fa-solid fa-compass text-culture-terracotta"></i> Corredores de Patrimonio y Cultura
+              </h2>
+              <p class="text-xs text-gray-500 mt-0.5">Haz clic en cada corredor para explorar sus indicadores específicos y recintos clave.</p>
+            </div>
+            <span class="text-[11px] bg-culture-sand text-culture-darkstone font-semibold px-2.5 py-1 rounded-full border border-amber-200">Datos OUITSC-H 2026</span>
+          </div>
+
+          <!-- Corridor Tabs -->
+          <div class="grid grid-cols-3 gap-2 p-1 bg-culture-sand rounded-xl mb-6">
+            <button id="tab-arqueo" onclick="selectCorridor('arqueo')" class="py-2.5 px-2 text-xs font-bold rounded-lg transition-all duration-200 text-culture-darkterracotta bg-white shadow-sm flex flex-col sm:flex-row items-center justify-center gap-1.5 border border-amber-100">
+              <i class="fa-solid fa-gopuran"></i> <span class="text-center sm:text-left">Arqueológico</span>
+            </button>
+            <button id="tab-conventos" onclick="selectCorridor('conventos')" class="py-2.5 px-2 text-xs font-bold rounded-lg transition-all duration-200 text-gray-500 hover:text-culture-stone flex flex-col sm:flex-row items-center justify-center gap-1.5">
+              <i class="fa-solid fa-church"></i> <span class="text-center sm:text-left">Exconventos</span>
+            </button>
+            <button id="tab-museos" onclick="selectCorridor('museos')" class="py-2.5 px-2 text-xs font-bold rounded-lg transition-all duration-200 text-gray-500 hover:text-culture-stone flex flex-col sm:flex-row items-center justify-center gap-1.5">
+              <i class="fa-solid fa-building-columns"></i> <span class="text-center sm:text-left">Museos</span>
+            </button>
+          </div>
+
+          <!-- Interactive Content Panel -->
+          <div id="corridor-content" class="bg-gradient-to-br from-white to-culture-sand/30 p-5 rounded-xl border border-amber-100/30 min-h-[220px] transition-all duration-300">
+            <!-- Dynamic Content gets injected here by Javascript -->
+          </div>
+        </div>
+
+        <!-- Interactive Cultural Trip Planner -->
+        <div class="bg-gradient-to-r from-culture-darkstone to-culture-stone rounded-2xl p-6 text-white shadow-lg relative overflow-hidden">
+          <div class="absolute right-0 bottom-0 opacity-10 translate-y-6 translate-x-6 text-9xl">
+            <i class="fa-solid fa-compass-drafting"></i>
+          </div>
+          
+          <div class="relative z-10">
+            <div class="flex items-center gap-2 mb-2">
+              <i class="fa-solid fa-route text-culture-gold text-lg"></i>
+              <h3 class="font-bold text-base font-heritage tracking-wide">Planificador de Experiencias Culturales e Impacto</h3>
+            </div>
+            <p class="text-xs text-amber-100/80 mb-6">Determina el impacto de tu itinerario. Los viajeros de pernocta cultural impulsan la economía local al integrar hospedaje y la red gastronómica.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+              <div>
+                <label for="route-select" class="block text-xs font-semibold text-amber-200 mb-1.5">1. Selecciona la Ruta:</label>
+                <select id="route-select" onchange="calculatePlanner()" class="w-full bg-white/10 border border-white/20 rounded-lg py-2 px-3 text-white text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-culture-gold">
+                  <option value="arqueo" class="text-culture-charcoal">Ruta Arqueológica (Tula / Pañhú)</option>
+                  <option value="conventos" class="text-culture-charcoal">Ruta de Conventos del S. XVI</option>
+                  <option value="museos" class="text-culture-charcoal">Ruta de Museos y Oficios Regionales</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="days-input" class="block text-xs font-semibold text-amber-200 mb-1.5">2. Duración del Viaje (Pernocta):</label>
+                <select id="days-input" onchange="calculatePlanner()" class="w-full bg-white/10 border border-white/20 rounded-lg py-2 px-3 text-white text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-culture-gold">
+                  <option value="1" class="text-culture-charcoal">Excursión de 1 Día (Sin pernocta)</option>
+                  <option value="2" class="text-culture-charcoal">Fin de Semana (1 noche de pernocta)</option>
+                  <option value="3" class="text-culture-charcoal">Fin de Semana Largo (2 noches)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="travelers-input" class="block text-xs font-semibold text-amber-200 mb-1.5">3. Número de Viajeros (PAX):</label>
+                <div class="relative">
+                  <input type="number" id="travelers-input" value="4" min="1" max="100" oninput="calculatePlanner()" class="w-full bg-white/10 border border-white/20 rounded-lg py-1.5 px-3 text-white text-xs font-bold focus:outline-none focus:ring-2 focus:ring-culture-gold">
+                </div>
+              </div>
+            </div>
+
+            <!-- Results Panel -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 pt-6 border-t border-white/10">
+              <div class="bg-white/5 border border-white/10 p-3 rounded-xl">
+                <span class="text-[10px] text-amber-200 uppercase font-semibold block">Gasto Diario Estimado (Por Pax)</span>
+                <span id="rate-display" class="text-lg font-bold text-white mt-0.5">$510.00 MXN</span>
+              </div>
+              <div class="bg-white/5 border border-white/10 p-3 rounded-xl">
+                <span class="text-[10px] text-amber-200 uppercase font-semibold block">Derrama Local Generada</span>
+                <span id="planner-spill" class="text-xl font-black text-culture-gold mt-0.5">$2,040.00 MXN</span>
+              </div>
+              <div class="bg-white/5 border border-white/10 p-3 rounded-xl flex flex-col justify-center">
+                <span class="text-[10px] text-amber-200 uppercase font-bold block">Maridaje Recomendado:</span>
+                <span id="pairing-display" class="text-xs font-semibold text-emerald-300 mt-0.5">Pueblo con Sabor</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Span (4 cols): Visual Analytics -->
+      <div class="lg:col-span-4 space-y-6">
+        
+        <!-- Visitor profile and charts -->
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-amber-100/50 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-sm font-bold text-culture-stone flex items-center gap-2">
+                <i class="fa-solid fa-chart-pie text-culture-terracotta"></i> Distribución del Flujo Cultural
+              </h2>
+              <span class="text-[10px] text-gray-400 font-bold">Distribución OUITSC-H</span>
+            </div>
+
+            <!-- Chart JS Box -->
+            <div class="mb-6 relative" style="height: 180px;">
+              <canvas id="culturalTypeChart"></canvas>
+            </div>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="w-1.5 h-12 bg-culture-gold rounded-full mt-1"></div>
+                <div>
+                  <h4 class="text-xs font-bold text-gray-800">Predominancia de la Arqueología</h4>
+                  <p class="text-[11px] text-gray-500 leading-tight">El turista asocia Hidalgo primeramente con los Atlantes de Tula, captando la mayor proporción de turistas culturales nacionales e internacionales.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-1.5 h-12 bg-culture-terracotta rounded-full mt-1"></div>
+                <div>
+                  <h4 class="text-xs font-bold text-gray-800">El Valor de la Arquitectura Sacra</h4>
+                  <p class="text-[11px] text-gray-500 leading-tight">Los exconventos del S. XVI captan turismo con mayor perfil de pernocta debido a su distribución geográfica favorable.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3">
+                <div class="w-1.5 h-12 bg-culture-stone rounded-full mt-1"></div>
+                <div>
+                  <h4 class="text-xs font-bold text-gray-800">Museos Regionales</h4>
+                  <p class="text-[11px] text-gray-500 leading-tight">Actúan como anclas de turismo local y educativo, con afluencia constante durante periodos escolares.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Strategic Tip block -->
+          <div class="mt-6 p-4 bg-culture-sand rounded-xl border border-amber-200/40 text-[11px] text-gray-600 leading-relaxed">
+            <span class="font-bold text-culture-darkterracotta block mb-1"><i class="fa-solid fa-lightbulb"></i> Eje de Diversificación:</span>
+            El Observatorio impulsa la integración de los <strong>Municipios con Sabor</strong> en las rutas patrimoniales, garantizando que el flujo cultural se traduzca en consumo de gastronomía ancestral local.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-8 border-t border-amber-100/60 pt-6 pb-12 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4">
+      <div>
+        <p class="font-semibold text-culture-stone">© 2026 Infografía de Indicadores de Turismo Cultural de Hidalgo.</p>
+        <p class="mt-1">Fuentes: Compendio Estadístico e Investigaciones del Observatorio de Innovación en Turismo Sustentable y Comunitario de Hidalgo (OUITSC-H / UAEH).</p>
+      </div>
+      <div class="flex gap-4">
+        <span class="font-semibold text-culture-terracotta"><i class="fa-solid fa-shield-halved"></i> Datos en revisión documental</span>
+        <span class="text-amber-200">|</span>
+        <span class="font-semibold text-culture-stone"><i class="fa-solid fa-clock"></i> Actualización: Junio 2026</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Interactive Logic -->
+  <script>
+    // Data structures for the 3 corridors
+    const corridorsData = {
+      arqueo: {
+        title: "Corredor Arqueológico del Estado",
+        subtitle: "Zona Arqueológica de Tula, Pañhú (Tecozautla) y Xihuingo (Tepeapulco)",
+        leadStat: "65%",
+        leadStatLabel: "De la Afluencia Cultural",
+        description: "El patrimonio prehispánico es el pilar de tracción turística de Hidalgo. La Zona Arqueológica de Tula destaca con sus Atlantes colosales, seguido del Pañhú (cultura Xajay) y Xihuingo, ligado al comercio teotihuacano.",
+        highlights: [
+          { icon: "fa-map-pin", text: "<strong>Tula:</strong> Recibe el mayor flujo flotante de turistas nacionales e internacionales." },
+          { icon: "fa-mountain-sun", text: "<strong>Pañhú:</strong> Ofrece vistas espectaculares del semidesierto y vestigios prehispánicos únicos." },
+          { icon: "fa-star", text: "<strong>Xihuingo:</strong> Arqueología ligada a la observación astronómica precolombina." }
+        ],
+        badge: "Mayor Atracción",
+        badgeColor: "bg-amber-100 text-amber-800 border-amber-200"
+      },
+      conventos: {
+        title: "Ruta de los Conventos del Siglo XVI",
+        subtitle: "Conventos de Actopan, Epazoyucan, Ixmiquilpan y Metztitlán",
+        leadStat: "22%",
+        leadStatLabel: "De la Afluencia Cultural",
+        description: "Uno de los conjuntos monásticos coloniales más ricos de América Latina. Las imponentes capillas abiertas y frescos platerescos son un gran imán para turismo académico, cultural especializado y de pernocta.",
+        highlights: [
+          { icon: "fa-scroll", text: "<strong>Exconvento de Actopan:</strong> Destaca por su monumentalidad y los extraordinarios murales del S. XVI." },
+          { icon: "fa-map", text: "<strong>Convento de San Andrés (Epazoyucan):</strong> Joya de la orden agustina con rica imaginería." },
+          { icon: "fa-hotel", text: "<strong>Retención del Viajero:</strong> Mayor propensión al hospedaje comparado con excursión de día." }
+        ],
+        badge: "Mayor Pernocta",
+        badgeColor: "bg-culture-terracotta/10 text-culture-darkterracotta border-culture-terracotta/20"
+      },
+      museos: {
+        title: "Museos Regionales y de Sitio",
+        subtitle: "Arqueología de Tula, Museo de Cultura Hñähñu e Ixmiquilpan",
+        leadStat: "13%",
+        leadStatLabel: "De la Afluencia Cultural",
+        description: "Espacios de resguardo, estudio y divulgación de la riqueza etnográfica y ancestral del estado. Cumplen un rol vital para la retención del visitante local, turismo de fin de semana e investigación científica.",
+        highlights: [
+          { icon: "fa-feather-pointed", text: "<strong>Museo Hñähñu:</strong> Salvaguarda la lengua, tradiciones y cosmovisión del Valle del Mezquital." },
+          { icon: "fa-box-archive", text: "<strong>Museos de Sitio:</strong> Complemento indispensable que aumenta la estancia en zonas arqueológicas." },
+          { icon: "fa-users", text: "<strong>Turismo Escolar:</strong> Principal receptor de visitas guiadas y actividades formativas regionales." }
+        ],
+        badge: "Valor Comunitario",
+        badgeColor: "bg-culture-stone/10 text-culture-stone border-culture-stone/20"
+      }
+    };
+
+    // Corridor Tab Selection handler
+    function selectCorridor(key) {
+      // 1. Update tab styling
+      const tabs = ['arqueo', 'conventos', 'museos'];
+      tabs.forEach(t => {
+        const tabBtn = document.getElementById(`tab-${t}`);
+        if (t === key) {
+          tabBtn.className = "py-2.5 px-2 text-xs font-bold rounded-lg transition-all duration-200 text-culture-darkterracotta bg-white shadow-sm flex flex-col sm:flex-row items-center justify-center gap-1.5 border border-amber-100";
+        } else {
+          tabBtn.className = "py-2.5 px-2 text-xs font-bold rounded-lg transition-all duration-200 text-gray-500 hover:text-culture-stone flex flex-col sm:flex-row items-center justify-center gap-1.5";
+        }
+      });
+
+      // 2. Update Content
+      const data = corridorsData[key];
+      const container = document.getElementById('corridor-content');
+      
+      // Build highlights list
+      let highlightsHTML = "";
+      data.highlights.forEach(h => {
+        highlightsHTML += `
+          <div class="flex items-start gap-2.5 text-xs text-gray-600">
+            <i class="fa-solid ${h.icon} text-culture-gold mt-0.5"></i>
+            <span>${h.text}</span>
+          </div>
+        `;
+      });
+
+      container.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+          <div class="md:col-span-8 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-md border ${data.badgeColor}">${data.badge}</span>
+              <h3 class="text-base font-bold text-culture-stone font-heritage">${data.title}</h3>
+            </div>
+            <p class="text-xs text-culture-stone font-semibold italic">${data.subtitle}</p>
+            <p class="text-xs text-gray-500 leading-relaxed">${data.description}</p>
+            
+            <div class="space-y-2.5 pt-2">
+              ${highlightsHTML}
+            </div>
+          </div>
+          
+          <div class="md:col-span-4 bg-white/70 backdrop-blur-sm border border-amber-100/50 p-4 rounded-xl flex flex-col items-center justify-center text-center">
+            <span class="text-3xl font-black text-culture-terracotta">${data.leadStat}</span>
+            <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider mt-1">${data.leadStatLabel}</span>
+            <div class="w-full bg-gray-200 rounded-full h-1 mt-3">
+              <div class="bg-culture-terracotta h-1 rounded-full" style="width: ${data.leadStat}"></div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Interactive Planner Calculations
+    function calculatePlanner() {
+      const route = document.getElementById('route-select').value;
+      const days = parseInt(document.getElementById('days-input').value) || 1;
+      const travelers = parseInt(document.getElementById('travelers-input').value) || 1;
+      
+      let dailyRate = 510; 
+      let pairing = "Pueblo con Sabor";
+
+      if (days === 1) {
+        dailyRate = 420; 
+      } else if (days === 2) {
+        dailyRate = 680; 
+      } else {
+        dailyRate = 810; 
+      }
+
+      if (route === "arqueo") {
+        pairing = "Barbacoa & Pulque (Actopan)";
+      } else if (route === "conventos") {
+        pairing = "Escamoles (Ixmiquilpan)";
+      } else if (route === "museos") {
+        pairing = "Pastes Tradicionales";
+      }
+
+      const totalSpill = dailyRate * days * travelers;
+
+      const formatter = new Intl.NumberFormat('es-MX', {
+        style: 'currency',
+        currency: 'MXN',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      });
+
+      document.getElementById('rate-display').textContent = formatter.format(dailyRate) + " MXN";
+      document.getElementById('planner-spill').textContent = formatter.format(totalSpill) + " MXN";
+      document.getElementById('pairing-display').textContent = pairing;
+    }
+
+    window.onload = function() {
+      selectCorridor('arqueo');
+      calculatePlanner();
+
+      const ctx = document.getElementById('culturalTypeChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Arqueología (Tula, etc.)', 'Exconventos S. XVI', 'Museos Regionales'],
+          datasets: [{
+            data: [65, 22, 13],
+            backgroundColor: [
+              '#C59B27', 
+              '#B25B32', 
+              '#4A4238'  
+            ],
+            borderColor: '#ffffff',
+            borderWidth: 2,
+            hoverOffset: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: {
+                boxWidth: 10,
+                font: {
+                  family: 'Montserrat',
+                  size: 10,
+                  weight: '600'
+                },
+                color: '#2D2D2D'
+              }
+            },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return ` ${context.label}: ${context.raw}% del flujo total`;
+                }
+              }
+            }
+          },
+          cutout: '72%'
+        }
+      });
+    };
+  </script>
+</body>
+</html>

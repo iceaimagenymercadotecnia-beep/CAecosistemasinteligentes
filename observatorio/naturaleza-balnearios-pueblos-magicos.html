@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hidalgo: Naturaleza, Balnearios y Pueblos Mágicos - UAEH OUITSC-H</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            nature: {
+              emerald: '#15803D',
+              darkemerald: '#14532D',
+              water: '#0284C7',
+              darkwater: '#0369A1',
+              magic: '#7C3AED',
+              sand: '#FAF9F6',
+              charcoal: '#1F2937'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap');
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    .font-magic {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-nature-sand via-white to-sky-50/40 min-h-screen text-nature-charcoal">
+<div style="max-width:1280px;margin:12px auto 0;padding:0 24px;font-family:Montserrat,Arial,sans-serif"><div style="background:#fff;border:1px solid #d1d5db;padding:12px 14px;border-radius:10px;font-size:12px;line-height:1.5;color:#374151"><strong>Nota editorial:</strong> visualización incorporada al Observatorio como material de trabajo. Las cifras, estimaciones y afirmaciones cuantitativas deben contar con fuente documental verificable antes de considerarse datos oficiales o resultados validados.</div></div>
+<div style="max-width:1280px;margin:10px auto 0;padding:0 24px;font-family:Montserrat,Arial,sans-serif"><a href="index.html" style="font-size:12px;color:#374151;text-decoration:none">← Volver al Observatorio</a></div>
+
+
+  <!-- ENCABEZADO INSTITUCIONAL SEGURO (SIN IMÁGENES EXTERNAS) -->
+  <header class="bg-gradient-to-r from-nature-darkemerald via-emerald-900 to-nature-darkwater text-white py-6 px-6 shadow-md relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#0284C7_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center relative z-10 gap-6">
+      
+      <!-- LADO IZQUIERDO: SIGLAS INSTITUCIONALES EN TEXTO VECTORIZADO -->
+      <div class="flex items-center justify-center bg-white/10 p-3 rounded-xl border border-white/10 backdrop-blur-sm w-28 h-16 shrink-0">
+        <span class="text-xl font-black tracking-wider text-white">UAEH</span>
+      </div>
+
+      <!-- CENTRO: TÍTULOS Y JERARQUÍA DEL OBSERVATORIO -->
+      <div class="text-center md:text-left flex-grow space-y-1">
+        <p class="text-xs font-bold tracking-widest text-emerald-300 uppercase">
+          Universidad Autónoma del Estado de Hidalgo
+        </p>
+        
+        <h2 class="text-sm md:text-base font-semibold tracking-tight text-sky-100 max-w-3xl">
+          Observatorio Universitario de Innovación en Turismo Sustentable y Comunitario de Hidalgo
+        </h2>
+
+        <h1 class="text-2xl md:text-3xl font-black tracking-tight font-magic text-white pt-1">
+          HIDALGO: <span class="text-sky-300">Aventura y Magia</span>
+        </h1>
+        
+        <p class="text-sky-100/60 text-[11px]">
+          Indicadores de Balnearios, Ecoturismo, Pueblos Mágicos y Origen del Visitante | Reporte Técnico 2026
+        </p>
+      </div>
+
+      <!-- LADO DERECHO: IDENTIFICADOR DEL OBSERVATORIO + BOTÓN -->
+      <div class="flex flex-col sm:flex-row md:flex-col items-center md:items-end gap-3 shrink-0">
+        <div class="flex items-center justify-center bg-white/10 p-2.5 rounded-xl border border-white/10 backdrop-blur-sm w-28 h-16">
+          <div class="text-center text-[10px] font-bold text-sky-200">
+            <i class="fa-solid fa-chart-line text-base mb-0.5 text-white block"></i>
+            OUITSC-H
+          </div>
+        </div>
+        
+        <button onclick="window.print()" class="bg-white/10 hover:bg-white/20 transition px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-2 border border-white/15">
+          <i class="fa-solid fa-print"></i> Imprimir
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- CUERPO DE LA INFOGRAFÍA INTERACTIVA -->
+  <main class="max-w-7xl mx-auto p-4 md:p-6 space-y-6">
+
+    <!-- KPI Row -->
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-emerald-100/40 flex items-center gap-4 transition-all hover:shadow-md hover:-translate-y-1">
+        <div class="p-4 bg-emerald-50 rounded-xl text-nature-emerald">
+          <i class="fa-solid fa-water text-2xl"></i>
+        </div>
+        <div>
+          <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Ocupación en Balnearios</p>
+          <p class="text-2xl font-black text-nature-darkemerald">Hasta 90%</p>
+          <p class="text-xs text-emerald-600 font-semibold"><i class="fa-solid fa-calendar-check"></i> Puentes y fines de semana</p>
+        </div>
+      </div>
+      
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-emerald-100/40 flex items-center gap-4 transition-all hover:shadow-md hover:-translate-y-1">
+        <div class="p-4 bg-purple-50 rounded-xl text-nature-magic">
+          <i class="fa-solid fa-wand-magic-sparkles text-2xl"></i>
+        </div>
+        <div>
+          <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Pueblos Mágicos</p>
+          <p class="text-2xl font-black text-purple-900">9</p>
+          <p class="text-xs text-gray-500 font-medium">Localidades con distintivo</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-emerald-100/40 flex items-center gap-4 transition-all hover:shadow-md hover:-translate-y-1">
+        <div class="p-4 bg-amber-50 rounded-xl text-amber-600">
+          <i class="fa-solid fa-utensils text-2xl"></i>
+        </div>
+        <div>
+          <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Pueblos con Sabor</p>
+          <p class="text-2xl font-black text-amber-700">28</p>
+          <p class="text-xs text-amber-600 font-semibold"><i class="fa-solid fa-award"></i> Joyas gastronómicas</p>
+        </div>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl shadow-sm border border-emerald-100/40 flex items-center gap-4 transition-all hover:shadow-md hover:-translate-y-1">
+        <div class="p-4 bg-sky-50 rounded-xl text-nature-water">
+          <i class="fa-solid fa-route text-2xl"></i>
+        </div>
+        <div>
+          <p class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Foco de Proximidad</p>
+          <p class="text-2xl font-black text-sky-950">42%</p>
+          <p class="text-xs text-sky-600 font-semibold">Visitantes del Valle de México</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      
+      <!-- Interactive Explorer (8 cols) -->
+      <div class="lg:col-span-8 space-y-6">
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-sky-100/50">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+            <div>
+              <h2 class="text-lg font-bold text-nature-darkemerald flex items-center gap-2">
+                <i class="fa-solid fa-tree text-nature-emerald"></i> Motores Turísticos Estatales
+              </h2>
+              <p class="text-xs text-gray-500 mt-0.5">Haz clic en los botones para alternar entre el Corredor de Balnearios y la Red de Pueblos Mágicos.</p>
+            </div>
+            <span class="text-[11px] bg-emerald-50 text-nature-darkemerald font-semibold px-2.5 py-1 rounded-full border border-emerald-200">Datos Observatorio 2026</span>
+          </div>
+
+          <!-- Tabs Interactivas -->
+          <div class="grid grid-cols-2 gap-2 p-1 bg-gray-50 rounded-xl mb-6 border border-gray-100">
+            <button id="tab-water" onclick="selectSegment('water')" class="py-2.5 px-3 text-xs font-bold rounded-lg transition-all duration-200 text-nature-darkwater bg-white shadow-sm flex items-center justify-center gap-2 border border-sky-100">
+              <i class="fa-solid fa-faucet-drip"></i> Aguas Termales y Balnearios
+            </button>
+            <button id="tab-magic" onclick="selectSegment('magic')" class="py-2.5 px-3 text-xs font-bold rounded-lg transition-all duration-200 text-gray-500 hover:text-nature-charcoal flex items-center justify-center gap-2">
+              <i class="fa-solid fa-wand-magic"></i> Pueblos Mágicos y Tradición
+            </button>
+          </div>
+
+          <!-- Interactive Content Injection Box -->
+          <div id="segment-content" class="bg-gradient-to-br from-white to-sky-50/20 p-5 rounded-xl border border-sky-100/30 min-h-[220px] transition-all duration-300">
+            <!-- Cargado vía JavaScript -->
+          </div>
+        </div>
+
+        <!-- Simulator -->
+        <div class="bg-gradient-to-r from-nature-darkemerald to-nature-darkwater rounded-2xl p-6 text-white shadow-lg relative overflow-hidden">
+          <div class="absolute right-0 bottom-0 opacity-10 translate-y-6 translate-x-6 text-9xl">
+            <i class="fa-solid fa-person-hiking"></i>
+          </div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-2 mb-2">
+              <i class="fa-solid fa-leaf text-sky-300 text-lg"></i>
+              <h3 class="font-bold text-base font-magic tracking-wide">Simulador de Impacto Económico Local (Aventura)</h3>
+            </div>
+            <p class="text-xs text-sky-100/80 mb-6">Estima la derrama generada de acuerdo con las actividades preferidas de aventura o relajación y la cantidad de visitantes planificados.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+              <div>
+                <label for="act-select" class="block text-xs font-semibold text-sky-200 mb-1.5">1. Tipo de Actividad:</label>
+                <select id="act-select" onchange="calculateAdventure()" class="w-full bg-white/10 border border-white/20 rounded-lg py-2 px-3 text-white text-xs font-semibold focus:outline-none">
+                  <option value="balnearios" class="text-nature-charcoal">Balnearios y Aguas Termales (Relajación)</option>
+                  <option value="ciclismo" class="text-nature-charcoal">Ciclismo y Senderismo (Parques de Montaña)</option>
+                  <option value="grutas" class="text-nature-charcoal">Exploración de Grutas y Cañones</option>
+                </select>
+              </div>
+              <div>
+                <label for="pax-input" class="block text-xs font-semibold text-sky-200 mb-1.5">2. Volumen de Visitantes (PAX):</label>
+                <input type="number" id="pax-input" value="150" min="1" step="10" oninput="calculateAdventure()" class="w-full bg-white/10 border border-white/20 rounded-lg py-1.5 px-3 text-white text-xs font-bold">
+              </div>
+              <div class="bg-white/5 border border-white/10 p-3 rounded-xl flex flex-col justify-center">
+                <span class="text-[10px] text-sky-200 uppercase font-semibold block">Inversión Directa en Comunidad</span>
+                <span id="adventure-result" class="text-lg font-black text-sky-300 mt-0.5">$76,500 MXN</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Chart (4 cols) -->
+      <div class="lg:col-span-4 space-y-6">
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-emerald-100/40 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-sm font-bold text-nature-charcoal flex items-center gap-2">
+                <i class="fa-solid fa-users-viewfinder text-nature-emerald"></i> Origen del Flujo de Visitantes
+              </h2>
+              <span class="text-[10px] text-gray-400 font-bold">OUITSC-H</span>
+            </div>
+            <div class="mb-6 relative" style="height: 180px;">
+              <canvas id="originChart"></canvas>
+            </div>
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="w-1.5 h-10 bg-sky-500 rounded-full mt-1"></div>
+                <div>
+                  <h4 class="text-xs font-bold text-gray-800">Cercanía Metropolitana (42%)</h4>
+                  <p class="text-[11px] text-gray-500 leading-tight">La cercanía con el Estado de México y la CDMX genera un turismo masivo de fin de semana que prioriza el descanso.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-1.5 h-10 bg-emerald-600 rounded-full mt-1"></div>
+                <div>
+                  <h4 class="text-xs font-bold text-gray-800">Turista Nacional (36%)</h4>
+                  <p class="text-[11px] text-gray-500 leading-tight">Viajeros procedentes del Bajío, Puebla y Veracruz que buscan pernoctar y recorrer rutas más largas.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-1.5 h-10 bg-purple-500 rounded-full mt-1"></div>
+                <div>
+                  <h4 class="text-xs font-bold text-gray-800">Turismo Interno (20%)</h4>
+                  <p class="text-[11px] text-gray-500 leading-tight">Movilidad de los propios hidalguenses, detonando el comercio intermunicipal.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-6 p-4 bg-sky-50 rounded-xl border border-sky-100 text-[11px] text-gray-600 leading-relaxed">
+            <span class="font-bold text-nature-darkwater block mb-1"><i class="fa-solid fa-train"></i> Factor Tren AIFA:</span>
+            La puesta en marcha del proyecto de conectividad ferroviaria metropolitana proyecta incrementar el porcentaje del turismo nacional e internacional en un <strong>12% anual</strong>.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-8 border-t border-emerald-100/60 pt-6 pb-12 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 gap-4">
+      <div>
+        <p class="font-semibold text-nature-charcoal">© 2026 Infografía de Indicadores de Aventura, Balnearios y Pueblos Mágicos de Hidalgo.</p>
+        <p class="mt-1">Fuentes: Compendio Estadístico e Investigaciones del Observatorio de Innovación en Turismo Sustentable y Comunitario de Hidalgo (OUITSC-H / UAEH).</p>
+      </div>
+      <div class="flex gap-4">
+        <span class="font-semibold text-nature-emerald"><i class="fa-solid fa-shield-halved"></i> Datos Abiertos</span>
+        <span class="text-emerald-100">|</span>
+        <span class="font-semibold text-nature-charcoal"><i class="fa-solid fa-clock"></i> Actualización: Junio 2026</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    const segmentsData = {
+      water: {
+        title: "Corredor de Balnearios y Aguas Termales",
+        subtitle: "Valle del Mezquital, Ixmiquilpan, Tecozautla y Ajacuba",
+        leadStat: "90%",
+        leadStatLabel: "Ocupación en Puentes Escolares",
+        description: "Hidalgo es el referente nacional indiscutible en turismo de salud y diversión acuática termal. Los parques de aguas termales en el Valle del Mezquital representan el mayor volumen de excursionistas de fin de semana, impulsando el comercio local de alimentos y artesanías.",
+        highlights: [
+          { icon: "fa-sun", text: "<strong>Infraestructura Gigante:</strong> Alberga parques acuáticos de alto impacto como El Tephé, Dios Padre y Maguey Blanco." },
+          { icon: "fa-temperature-three-quarters", text: "<strong>Aguas Termales:</strong> Temperaturas de hasta 38°C ideales para el turismo de relajación y bienestar familiar." },
+          { icon: "fa-users", text: "<strong>Demanda Masiva:</strong> Atrae principalmente familias procedentes de la Zona Metropolitana de la CDMX." }
+        ],
+        badge: "Mayor Flujo de Excursionismo",
+        badgeColor: "bg-sky-100 text-nature-darkwater border-sky-200"
+      },
+      magic: {
+        title: "Pueblos Mágicos e Identidad Local",
+        subtitle: "Huasca de Ocampo, Real del Monte, Mineral del Chico, Huichapan, Zimapán, Tecozautla, Zempoala, Metztitlán y Acaxochitlán",
+        leadStat: "9",
+        leadStatLabel: "Pueblos Mágicos Consolidados",
+        description: "Hidalgo cuenta con una red de nueve Pueblos Mágicos. Estos destinos actúan como anclas para combatir la pobreza comunitaria mediante la diversificación económica en gastronomía, hospedaje boutique y guías locales.",
+        highlights: [
+          { icon: "fa-utensils", text: "<strong>Pueblos con Sabor:</strong> 28 municipios cuentan con esta distinción gastronómica complementaria." },
+          { icon: "fa-house-chimney-window", text: "<strong>Hospedaje de Montaña:</strong> Cabañas y hoteles ecológicos que fomentan estancias más largas y con mayor gasto directo." },
+          { icon: "fa-mountain-sun", text: "<strong>Turismo de Naturaleza:</strong> Sinergia total con el Geoparque Comarca Minera avalado por la UNESCO." }
+        ],
+        badge: "Mayor Retención y Pernocta",
+        badgeColor: "bg-purple-100 text-purple-900 border-purple-200"
+      }
+    };
+
+    function selectSegment(key) {
+      const tabs = ['water', 'magic'];
+      tabs.forEach(t => {
+        const tabBtn = document.getElementById(`tab-${t}`);
+        if (t === key) {
+          if (t === 'water') {
+            tabBtn.className = "py-2.5 px-3 text-xs font-bold rounded-lg transition-all duration-200 text-nature-darkwater bg-white shadow-sm flex items-center justify-center gap-2 border border-sky-100";
+          } else {
+            tabBtn.className = "py-2.5 px-3 text-xs font-bold rounded-lg transition-all duration-200 text-nature-magic bg-white shadow-sm flex items-center justify-center gap-2 border border-purple-100";
+          }
+        } else {
+          tabBtn.className = "py-2.5 px-3 text-xs font-bold rounded-lg transition-all duration-200 text-gray-500 hover:text-nature-charcoal flex items-center justify-center gap-2";
+        }
+      });
+
+      const data = segmentsData[key];
+      const container = document.getElementById('segment-content');
+
+      let highlightsHTML = "";
+      data.highlights.forEach(h => {
+        highlightsHTML += `
+          <div class="flex items-start gap-2.5 text-xs text-gray-600">
+            <i class="fa-solid ${h.icon} text-nature-emerald mt-0.5"></i>
+            <span>${h.text}</span>
+          </div>
+        `;
+      });
+
+      container.innerHTML = `
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-5 items-center">
+          <div class="md:col-span-8 space-y-3">
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-md border ${data.badgeColor}">${data.badge}</span>
+              <h3 class="text-base font-bold text-nature-charcoal font-magic">${data.title}</h3>
+            </div>
+            <p class="text-xs text-nature-darkemerald font-semibold italic">${data.subtitle}</p>
+            <p class="text-xs text-gray-500 leading-relaxed">${data.description}</p>
+            <div class="space-y-2.5 pt-2">
+              ${highlightsHTML}
+            </div>
+          </div>
+          <div class="md:col-span-4 bg-white/80 backdrop-blur-sm border border-emerald-100/50 p-4 rounded-xl flex flex-col items-center justify-center text-center">
+            <span class="text-3xl font-black ${key === 'water' ? 'text-nature-darkwater' : 'text-nature-magic'}">${data.leadStat}</span>
+            <span class="text-[10px] text-gray-400 font-bold uppercase tracking-wider mt-1">${data.leadStatLabel}</span>
+            <div class="w-full bg-gray-200 rounded-full h-1 mt-3">
+              <div class="h-1 rounded-full ${key === 'water' ? 'bg-nature-darkwater' : 'bg-nature-magic'}" style="width: ${key === 'water' ? '90%' : '100%'}"></div>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function calculateAdventure() {
+      const act = document.getElementById('act-select').value;
+      const pax = parseInt(document.getElementById('pax-input').value) || 0;
+      let baseSpendPerPax = 510;
+
+      if (act === 'balnearios') baseSpendPerPax = 510;
+      else if (act === 'ciclismo') baseSpendPerPax = 650;
+      else if (act === 'grutas') baseSpendPerPax = 800;
+
+      const totalImpact = baseSpendPerPax * pax;
+      const formatter = new Intl.NumberFormat('es-MX', {
+        style: 'currency', currency: 'MXN', minimumFractionDigits: 0, maximumFractionDigits: 0
+      });
+      document.getElementById('adventure-result').textContent = formatter.format(totalImpact) + " MXN";
+    }
+
+    window.onload = function() {
+      selectSegment('water');
+      calculateAdventure();
+
+      const ctx = document.getElementById('originChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Valle de México', 'Turistas Nacionales', 'Turismo Interno', 'Internacionales'],
+          datasets: [{
+            data: [42, 36, 20, 2],
+            backgroundColor: ['#0284C7', '#15803D', '#7C3AED', '#F59E0B'],
+            borderColor: '#ffffff', borderWidth: 2, hoverOffset: 6
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              position: 'bottom',
+              labels: { boxWidth: 8, font: { family: 'Montserrat', size: 9, weight: '600' }, color: '#1F2937' }
+            }
+          },
+          cutout: '70%'
+        }
+      });
+    };
+  </script>
+</body>
+</html>
